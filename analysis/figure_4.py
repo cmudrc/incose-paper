@@ -1,12 +1,17 @@
+"""
+Figure 4: The accessibility and travel distance over time for a certain scenario.
+"""
+
 import os
 import piperabm as pa
 import matplotlib.pyplot as plt
 
+
 path = os.path.dirname(os.path.realpath(__file__))
 names = [
-    '0_0_0_0', # control
-    '0_0_0_2', # critical 15%
-    '0_0_0_5', # random 15%
+    '0_0_0_0',  # control
+    '0_0_0_2',  # critical impact 15%
+    '0_0_0_5',  # random impact 15%
 ]
 titles = [
     'Control',

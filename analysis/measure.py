@@ -1,3 +1,7 @@
+"""
+Measure the accessibility and travel distance of all models using simulation results.
+"""
+
 import os
 import multiprocessing
 import piperabm as pa
@@ -32,6 +36,7 @@ def main():
     print(">>> measuring all models... ")
 
     path = os.path.dirname(os.path.realpath(__file__))
+    path = os.path.dirname(path)  # Parent directory
     measurements = load_measurements(path)
 
     # Create a pool of processes

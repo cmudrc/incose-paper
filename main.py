@@ -1,3 +1,7 @@
+"""
+Run the simulation pipleline.
+"""
+
 from datetime import datetime
 import csv
 import os
@@ -16,12 +20,10 @@ def main():
     start_time = datetime.now()
     print("start time: ", start_time)
     
-    
-    create()
-    run()
-    impact()
-    run_impacted()
-
+    create()  # Create unimpacted models
+    run()  # Run unimpacted models
+    impact()  # Create impacted models
+    run_impacted()  # Run impacted models
     
     end_time = datetime.now()
     print("end time: ", end_time)

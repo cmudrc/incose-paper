@@ -1,3 +1,7 @@
+"""
+Create the impacted models for the simulations.
+"""
+
 import os
 from copy import deepcopy
 import piperabm as pa

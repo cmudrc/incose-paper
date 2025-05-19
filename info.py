@@ -1,3 +1,7 @@
+"""
+Setup information for the study.
+"""
+
 import numpy as np
 from copy import deepcopy
 
@@ -62,9 +66,9 @@ def create_names(impacted: bool):
                         names.append(name)
     return names
 
-names_impacted = create_names(impacted=True)
-names_unimpacted = create_names(impacted=False)
-names = names_impacted + names_unimpacted
+names_impacted = create_names(impacted=True)  # Impacted models names
+names_unimpacted = create_names(impacted=False)  # Unimpacted models names
+names = names_impacted + names_unimpacted  # All models names
 
 def name_to_setup(name: str):
     """
