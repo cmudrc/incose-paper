@@ -176,4 +176,5 @@ cython_debug/
 # Pyenv
 .python-version
 
+# Custom
 BASEMENT/
