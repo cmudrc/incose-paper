@@ -1,3 +1,7 @@
+"""
+Extract simulation setup names and save them to setups.csv
+"""
+
 import os
 import csv
 
