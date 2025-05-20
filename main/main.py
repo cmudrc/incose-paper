@@ -8,6 +8,7 @@ from create import main as create
 from run import main as run
 from impact import main as impact
 from run_impacted import main as run_impacted
+from extract_simulation_setup import main as extract_simulation_setup
 
 
 def main():
@@ -18,6 +19,7 @@ def main():
     run()  # Run unimpacted models
     impact()  # Create impacted models
     run_impacted()  # Run impacted models
+    extract_simulation_setup()  # Extract simulation setup names and save them to setups.csv
     
     end_time = datetime.now()
     print("end time: ", end_time)

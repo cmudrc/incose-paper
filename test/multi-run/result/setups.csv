@@ -1,0 +1,6 @@
+name,population,household_size,seed,impact_type,impact_level
+0_0_0_1,10,5,37,critical,5
+0_0_0_2,10,5,37,critical,15
+0_0_0_3,10,5,37,random,5
+0_0_0_4,10,5,37,random,15
+0_0_0_0,10,5,37,none,none
