@@ -176,5 +176,8 @@ cython_debug/
 # Pyenv
 .python-version
 
+# Mac files
+.DS_Store
+
 # Custom
 BASEMENT/
