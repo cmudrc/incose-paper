@@ -1,0 +1,4 @@
+You can either:
+1. Run the script to generate the data yourself.
+2. Access the pre-generated dataset directly from this repository:  
+https://huggingface.co/datasets/cmudrc/incose-paper-data

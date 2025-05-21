@@ -182,5 +182,9 @@ cython_debug/
 # Custom
 BASEMENT/
 
-# Data files are in Hugging Face
-main/result/
+# Ignore everything in the folder
+main/result/*
+
+# Except the folder itself
+!main/result/
+!main/result/guide.txt
