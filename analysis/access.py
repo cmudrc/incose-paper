@@ -1,3 +1,8 @@
+"""
+For easier access to simulation data either locally or online
+    - Online: https://huggingface.co/datasets/cmudrc/incose-paper-data
+    - Local: main/result
+"""
 import os
 import pandas as pd
 from datasets import load_dataset
@@ -28,7 +33,7 @@ def access_scenario(scenario: str, file: str):
 
 def access_setups():
     """
-    Access scenario data
+    Access setups data
     """
     path_file = os.path.join(path_result, "setups.csv")
     if os.path.exists(path_file):
