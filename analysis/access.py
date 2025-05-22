@@ -13,7 +13,7 @@ repo_name = "cmudrc/incose-paper-data"
 # For local access
 path_analysis = os.path.dirname(os.path.realpath(__file__))  # We are now here!
 path_root = os.path.dirname(path_analysis)  # Project root diretory
-path_result = path_main = os.path.join(os.path.join(path_root, 'main'), 'result')  # result path
+path_result = os.path.join(os.path.join(path_root, 'main'), 'result')  # result path
 
 
 def access_scenario(scenario: str, file: str):
