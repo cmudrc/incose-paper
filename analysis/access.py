@@ -21,9 +21,9 @@ def access_scenario(scenario: str, file: str):
     Access scenario data
     """
     path_file = os.path.join(path_result, scenario, file)
-    if os.path.exists(path_file):
+    if os.path.exists(path_file):  # Local access
         return pd.read_csv(path_file)
-    else:
+    else:  # Online access
         path_file = f"{scenario}/{file}"
         dataset = load_dataset(
             repo_name,
@@ -36,9 +36,9 @@ def access_setups():
     Access setups data
     """
     path_file = os.path.join(path_result, "setups.csv")
-    if os.path.exists(path_file):
+    if os.path.exists(path_file):  # Local access
         return pd.read_csv(path_file)
-    else:
+    else:  # Online access
         path_file = f"setups.csv"
         dataset = load_dataset(
             repo_name,
@@ -48,7 +48,10 @@ def access_setups():
 
 
 if __name__ == "__main__":
-    df = access_scenario("0_0_0_0", "agents.csv")
+    # Scenario
+    df = access_scenario(scenario="0_0_0_0", file="agents.csv")
     print(df.head())
+
+    # Setups
     df = access_setups()
     print(df.head())
