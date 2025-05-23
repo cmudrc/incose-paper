@@ -83,7 +83,7 @@ def access_json(path_here: str, scenario_name: str, file_name: str):
     path_scenario_local = os.path.join(path_main, 'result', scenario_name)
     
     # Local access
-    if not os.path.exists(path_scenario_local):
+    if os.path.exists(path_scenario_local):
         access = 'local'
         path = path_main
 

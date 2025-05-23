@@ -3,11 +3,15 @@ Figure 4: The accessibility and travel distance over time for a certain scenario
 """
 
 import os
+import sys
 import piperabm as pa
 import matplotlib.pyplot as plt
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from analysis.access import access_json
 
-path = os.path.dirname(os.path.realpath(__file__))
+
+path_here = os.path.dirname(os.path.realpath(__file__))
 names = [
     '0_0_0_0',  # control
     '0_0_0_2',  # critical impact 15%
@@ -22,6 +26,11 @@ titles = [
 results = []
 
 for i, name in enumerate(names):
+    path, access = access_json(
+        path_here=path_here,
+        scenario_name=name,
+        file_name="measurement.json"
+    )
     measurement = pa.Measurement(
         path=path,
         name=name
