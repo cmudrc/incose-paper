@@ -1,7 +1,6 @@
 import sys
 import os
 import shutil
-import requests
 import numpy as np
 import statsmodels.api as sm
 import piperabm as pa
@@ -9,6 +8,7 @@ import piperabm as pa
 # Append the root path to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from analysis.info import *
+from analysis.access import access_json
 
 
 def average_tables(tables):
@@ -54,9 +54,6 @@ def create_table(
 
     # Local
     path_here = os.path.dirname(os.path.realpath(__file__))  # We are now here!
-    path_root = os.path.dirname(os.path.dirname(path_here))  # Project root diretory
-    path_main_local = os.path.join(path_root, 'main')  # Main path
-    #print("Result: ", path_result_local)
 
     for seed in seeds:
         table = []
@@ -70,29 +67,11 @@ def create_table(
                     'impact': impact
                 }
                 name = setup_to_name(setup)
-                path_scenario_local = os.path.join(path_main_local, 'result', name)
-                if os.path.exists(path_scenario_local):  # Local access
-                    access = 'local'
-                    path = path_main_local
-                else:  # Online access
-                    access = 'online'
-                    folder_path = os.path.join(path, 'result')
-                    os.makedirs(folder_path, exist_ok=True)
-                    path_scenario_online = os.path.join(folder_path, name)
-                    os.makedirs(path_scenario_online, exist_ok=True)
-                    # Download measurement.json from f"{name}/" to path_scenario_online
-                    base_url = "https://huggingface.co/datasets/cmudrc/incose-paper-data/resolve/main"
-                    url = f"{base_url}/{name}/measurement.json"
-                    local_path = os.path.join(path_scenario_online, "measurement.json")
-
-                    response = requests.get(url)
-                    if response.status_code == 200:
-                        with open(local_path, 'wb') as f:
-                            f.write(response.content)
-                        print(f"Downloaded measurement.json to {local_path}")
-                    else:
-                        raise RuntimeError(f"Failed to download {url}: {response.status_code}")
-                    path = path_here
+                path, access = access_json(
+                    path_here=path_here,
+                    scenario_name=name,
+                    file_name="measurement.json"
+                )
                 measurement = pa.Measurement(
                     path=path,
                     name=name
@@ -102,9 +81,9 @@ def create_table(
             table.append(row)
         tables.append(table)
 
-    # Remove folder
+    # Remove downloaded folder
     if access == 'online':
-        shutil.rmtree(folder_path)
+        shutil.rmtree(os.path.join(path, 'result'))
 
     #print(tables)
     result = average_tables(tables)
