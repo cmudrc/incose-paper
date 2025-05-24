@@ -2,7 +2,7 @@
 
 ### "Agent-Based Modeling for the Evaluation of Community Resilience In Silico"
 
-_Paper submitted to INCOSE_
+_Paper submitted to [INCOSE (International Council on Systems Engineering)](https://incose.onlinelibrary.wiley.com)_
 
 ## Overview
 
