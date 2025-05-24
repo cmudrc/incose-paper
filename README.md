@@ -1,5 +1,8 @@
-# incose-paper
-PiperABM Paper Submission to INCOSE: "Agent-Based Modeling for the Evaluation of Community Resilience In Silico"
+# PiperABM-INCOSE
+
+### "Agent-Based Modeling for the Evaluation of Community Resilience In Silico"
+
+_Paper submitted to INCOSE_
 
 ## Overview
 
@@ -46,6 +49,15 @@ python main.py
 * __Local:__ After running `main/main.py`, inspect the `main/result/` directory.
 * __Remote:__ Precomputed results are hosted on Hugging Face: 
 [https://huggingface.co/datasets/cmudrc/incose-paper-data](https://huggingface.co/datasets/cmudrc/incose-paper-data)
+
+## Analysis
+
+All post-processing and figure-generation scripts live in the `analysis/` folder. Each subfolder in `analysis/` corresponds to a specific analysis pipeline.
+
+Scripts are designed to:
+
+1. Look for local results in `main/result/`.
+2. If unavailable, fetch data from the Hugging Face repository automatically.
 
 ## Tests
 
